@@ -36,8 +36,9 @@ public class App {
 	public static void main(String[] args) throws Exception {
 
 		App app = new App();
-		List<Event> evts = app.getThreeThingsToDo();
-		for (Event e : evts) {
+		//List<Event> evts = app.getThreeThingsToDo();
+		List<Event> hi = app.getSmallEvents();
+		for (Event e : hi) {
 			System.out.println(e);
 		}
 	}
@@ -83,5 +84,20 @@ public class App {
 				PARK_SPECIAL_PERMITS),
 				eventListType
 				);
+	}
+	
+	public List<Event> getSmallEvents() throws Exception {
+		List<Event> toDo = new ArrayList<Event>();
+		List<Event> evts = getParkSpecialPermits();
+		
+		int maxAttendance = 1000;
+		for (Event evt : evts) {
+			if  (evt.getAttendance() == null){
+				continue;
+			} else if (Integer.parseInt(evt.getAttendance()) < maxAttendance) {
+				toDo.add(evt);
+			}		
+		}
+		return toDo;
 	}
 }
