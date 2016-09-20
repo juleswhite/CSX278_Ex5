@@ -1,5 +1,10 @@
 # In-class Assignment
 
+## Do this First
+
+Send me an email with the list of the GitHub IDs for the people in your team
+so that I can give you write access to the repository.
+
 ## Overview
 
 A challenging component of team software development is that individual
