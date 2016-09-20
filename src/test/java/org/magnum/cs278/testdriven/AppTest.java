@@ -9,6 +9,8 @@ import java.util.List;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class AppTest {
 
 	private App app = new App();
@@ -44,6 +46,16 @@ public class AppTest {
 			assertNotNull(event.getName());
 			assertNotNull(event.getDate());
 		}
+	}
+
+	@Test
+	public void testIsLeapYear() throws Exception{
+	   Event e1 = new Event("n1", "loc1", "0", "may", "1/1/00");
+	   Event e2 = new Event("n1", "loc1", "0", "may", "1/1/04");
+	   Event e3 = new Event("n1", "loc1", "0", "may", "1/1/01");
+	   assertFalse(e1.isLeapYearGroupFour());
+	   assertTrue(e2.isLeapYearGroupFour());
+	   assertFalse(e3.isLeapYearGroupFour());
 	}
 
 }
