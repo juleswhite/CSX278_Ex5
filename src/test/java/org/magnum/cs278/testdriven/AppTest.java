@@ -57,6 +57,8 @@ public class AppTest {
 			
 		
 	}
+	
+	@Test
 	public void testEventToString() throws Exception {
 		String name = "Test Event";
 		String location = "Test Location";
