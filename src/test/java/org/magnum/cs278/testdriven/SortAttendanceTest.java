@@ -16,22 +16,24 @@ public class SortAttendanceTest {
 
     private App app = new App();
     // sortAttendance is descending order (largest first)
-    List<Event> sortedList = app.sortAttendance();
 
     @Test
     public void testLargestAttendance() throws Exception {
+        List<Event> sortedList = app.sortAttendance();
         Event topEvent = sortedList.get(0);
         assertEquals((Integer.parseInt(topEvent.getAttendance())), 284000);
     }
 
     @Test
     public void testLeastAttendance() throws Exception {
+        List<Event> sortedList = app.sortAttendance();
         Event leastEvent = sortedList.get(sortedList.size() - 1);
         assertEquals(Integer.parseInt(leastEvent.getAttendance()), 0);
     }
 
     @Test
     public void testIncremental() throws Exception {
+        List<Event> sortedList = app.sortAttendance();
         int randomPos = (int) (Math.random() * sortedList.size()) - 2;
         Event largerEvent = sortedList.get(randomPos);
         Event smallerEvent = sortedList.get(randomPos + 1);

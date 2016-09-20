@@ -49,9 +49,16 @@ public class App {
 	
 		Collections.sort(someList, new Comparator<Event>(){
 		     public int compare(Event o1, Event o2){
-		         if(o1.getAttendance() == o2.getAttendance())
-		             return 0;
-		         return Integer.parseInt(o1.getAttendance()) < Integer.parseInt(o2.getAttendance()) ? 1 : -1;
+		         try {
+		         	if(o1.getAttendance().equals(o2.getAttendance()))
+						 return 0;
+					return Integer.parseInt(o1.getAttendance()) < Integer.parseInt(o2.getAttendance()) ? 1 : -1;
+				 } catch (NullPointerException e) {
+				 	return Integer.MIN_VALUE;
+					 // probably not accurate
+				 } catch (NumberFormatException e) {
+				 	return Integer.MIN_VALUE;
+				 }
 		     }
 		});
 		
