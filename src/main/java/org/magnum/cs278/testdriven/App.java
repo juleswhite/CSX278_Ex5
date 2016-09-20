@@ -88,18 +88,7 @@ public class App {
 	
 	//Filter by location 
 	
-	public List<Event> filterByLocation(String location) throws Exception {
-		List<Event> events = this.getParkSpecialPermits();
-		
-		List<Event> eventsForLocation = new ArrayList<Event>();
-		
-		for(Event event: events){
-			if(event.getLocation() == location){
-				eventsForLocation.add(event);
-			}
-			
-		}
-		
-		return eventsForLocation;
+	public List<Event> filterByLocation(final String location) throws Exception {
+		return this.getParkSpecialPermits().stream().filter(e -> e.getLocation() == location ).collect(Collectors.toList());
 	}
 }
