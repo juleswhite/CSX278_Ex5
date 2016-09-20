@@ -2,6 +2,8 @@ package org.magnum.cs278.testdriven;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,6 +42,20 @@ public class App {
 		for (Event e : evts) {
 			System.out.println(e);
 		}
+	}
+	
+	public List<Event> sortAttendance() throws Exception {
+		List<Event> someList = getParkSpecialPermits();
+	
+		Collections.sort(someList, new Comparator<Event>(){
+		     public int compare(Event o1, Event o2){
+		         if(o1.getAttendance() == o2.getAttendance())
+		             return 0;
+		         return Integer.parseInt(o1.getAttendance()) < Integer.parseInt(o2.getAttendance()) ? 1 : -1;
+		     }
+		});
+		
+		return someList;
 	}
 
 	// Download the list of special event park permits and select
