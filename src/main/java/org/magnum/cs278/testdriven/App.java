@@ -68,6 +68,14 @@ public class App {
 
 		return toDo;
 	}
+	
+	public Event getRandomEvent() throws Exception{
+		List<Event> evts = getParkSpecialPermits();
+		int index = (int) Math.ceil(Math.random()*evts.size());
+		Event randomEvt = evts.get(index);
+		return randomEvt;
+		
+	}
 
 	// Download a list of all special event park permits for Nashville.
 	public List<Event> getParkSpecialPermits() throws Exception {

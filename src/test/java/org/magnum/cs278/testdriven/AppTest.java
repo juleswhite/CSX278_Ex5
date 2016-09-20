@@ -45,18 +45,5 @@ public class AppTest {
 			assertNotNull(event.getDate());
 		}
 	}
-	
-	@Test
-	public void testEventToString() throws Exception {
-		String name = "Test Event";
-		String location = "Test Location";
-		String attendance = "150";
-		String month = "January";
-		String date = "20th";
-		Event testEvent = new Event(name, location, attendance, month, date);
-		
-		assertEquals(testEvent.toString(), "Name: " + name + ", Location: " + location + ", Attendance: "
-				+ attendance + ", Month: " + month + ", Date: " + date);
-	}
 
 }
