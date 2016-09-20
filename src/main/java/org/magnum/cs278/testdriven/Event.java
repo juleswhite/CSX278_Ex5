@@ -51,7 +51,14 @@ public class Event {
 	public String getDate() {
 		return date;
 	}
-
+	public bool isOdd() {
+		String year = date.substring(6);
+		int d = Integer.parseInt(year);
+		if(d%2==0)
+			return false;
+		else
+			return true;
+	}
 	@JsonIgnore
 	public DateTime getDateTime() {
 		try{
