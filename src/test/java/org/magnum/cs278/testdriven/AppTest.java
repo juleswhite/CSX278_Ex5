@@ -45,5 +45,26 @@ public class AppTest {
 			assertNotNull(event.getDate());
 		}
 	}
+	
+	@Test
+	public void testGetBiggestEvent() throws Exception {
+		List<Event> biggestEvent = app.getBiggestEvent();
+		assertEquals(1, biggestEvent.size());
+		DateTime today = DateTime.now();
+		for(Event thingToDo : biggestEvent){
+			assertNotNull(thingToDo);
+			assertNotNull(thingToDo.getDate());
+			
+			try{
+				DateTime eventDate = Event.DATE_TIME_FORMAT.parseDateTime(thingToDo.getDate());
+				assertTrue(eventDate.isAfter(today));
+			}catch(IllegalArgumentException arg){
+				//The data in data.nashville.gov is..unfortunately...not
+				//perfectly clean and we have to ignore the garbage...
+			}
+		}
+	}
 
 }
+
+	
