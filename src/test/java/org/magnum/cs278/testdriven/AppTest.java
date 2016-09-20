@@ -55,7 +55,7 @@ public class AppTest {
 		String date = "20th";
 		Event testEvent = new Event(name, location, attendance, month, date);
 		
-		assertEquals(testEvent.toString(), "Name :" + name + ", Location: " + location + ", Attendance: "
+		assertEquals(testEvent.toString(), "Name: " + name + ", Location: " + location + ", Attendance: "
 				+ attendance + ", Month: " + month + ", Date: " + date);
 	}
 
