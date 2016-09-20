@@ -84,4 +84,11 @@ public class App {
 				eventListType
 				);
 	}
+	
+	
+	//Filter by location 
+	
+	public List<Event> filterByLocation(final String location) throws Exception {
+		return this.getParkSpecialPermits().stream().filter(e -> e.getLocation() == location ).collect(Collectors.toList());
+	}
 }
