@@ -84,4 +84,16 @@ public class App {
 				eventListType
 				);
 	}
+	
+	public List<Event> getEventsByMonth_group2(String month) throws Exception {
+		List<Event> listByMonth = new ArrayList<Event>();
+		List<Event> evts = getParkSpecialPermits();
+		for (Event evt : evts){
+			if (evt.getMonth().equals(month)){
+				listByMonth.add(evt);
+			}
+			
+		}
+		return listByMonth;
+	}
 }
