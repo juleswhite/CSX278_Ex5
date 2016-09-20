@@ -46,4 +46,30 @@ public class AppTest {
 		}
 	}
 
+    @Test
+    public void testGetEventsInMonth() throws Exception {
+        final String month = "Aug";
+        List<Event> events = app.getEventsInMonth(month);
+        List<Event> rawEvents = app.getParkSpecialPermits();
+
+        int rawCount = 0;
+
+        for (Event rawEvent : rawEvents) {
+            if (rawEvent.getMonth() == month) {
+                rawCount++;
+            }
+        }
+
+        int eventCount = events.size();
+
+        assertTrue(events.size() == rawCount);
+        assertTrue(events.size() == eventCount);
+        for(Event event : events){
+            assertNotNull(event.getMonth());
+            assertEquals(month, event.getMonth());
+
+        }
+
+    }
+
 }
