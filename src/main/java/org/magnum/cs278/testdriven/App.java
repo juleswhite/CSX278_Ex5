@@ -84,4 +84,14 @@ public class App {
 				eventListType
 				);
 	}
+
+	public List<Event> getPrivateEvents(List<Event> eventList){
+		List<Event> privateEventList = new ArrayList<Event>();
+		for(Event event: eventList){
+			if(event.getEventType().equals("Private")){
+				privateEventList.add(event);
+			}
+		}
+		return privateEventList;
+	}
 }
