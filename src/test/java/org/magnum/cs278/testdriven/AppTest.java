@@ -47,11 +47,10 @@ public class AppTest {
 	}
 	
 	@Test
-	public void testGetBiggestEvent() throws Exception {
-		List<Event> biggestEvent = app.getBiggestEvent();
-		assertEquals(1, biggestEvent.size());
+	public void testGetRandomEvent() throws Exception {
+		Event randomEvent = app.getRandomEvent();
 		DateTime today = DateTime.now();
-		for(Event thingToDo : biggestEvent){
+		for(Event thingToDo : randomEvent){
 			assertNotNull(thingToDo);
 			assertNotNull(thingToDo.getDate());
 			
@@ -62,7 +61,6 @@ public class AppTest {
 				//The data in data.nashville.gov is..unfortunately...not
 				//perfectly clean and we have to ignore the garbage...
 			}
-		}
 	}
 
 }
