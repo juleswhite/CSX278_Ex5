@@ -100,4 +100,15 @@ public class App {
 		}
 		return toDo;
 	}
+	
+	public List<Event> getPrivateEvents() throws Exception{
+		List<Event> eventList = getParkSpecialPermits();
+		List<Event> privateEventList = new ArrayList<Event>();
+		for(Event event: eventList){
+			if(event.getEventType().equals("Private")){
+				privateEventList.add(event);
+			}
+		}
+		return privateEventList;
+	}
 }
