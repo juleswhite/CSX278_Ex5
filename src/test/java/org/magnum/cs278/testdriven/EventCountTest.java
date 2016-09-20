@@ -14,10 +14,16 @@ public class EventCountTest {
 	public void test() {
 		
 		int count = app.totalEvents();
-		List<Event> events = app.getParkSpecialPermits();
 		assertNotNull(count);
-		assertNotNull(events);
-		assertTrue(count == events.size());
+		List<Event> events;
+		try {
+			events = app.getParkSpecialPermits();
+			assertTrue(count == events.size());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			fail("error getting events");
+		}
 	}
 
 }

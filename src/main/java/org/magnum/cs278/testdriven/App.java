@@ -3,7 +3,6 @@ package org.magnum.cs278.testdriven;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.joda.time.DateTime;
 
@@ -83,5 +82,18 @@ public class App {
 				PARK_SPECIAL_PERMITS),
 				eventListType
 				);
+	}
+	
+	public int totalEvents() {
+		List<Event> events;
+		try {
+			events = getParkSpecialPermits();
+			return events.size();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return -1;
 	}
 }
