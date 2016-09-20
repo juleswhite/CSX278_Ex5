@@ -54,13 +54,19 @@ public class AppTest {
 			assertNotNull(thingToDo);
 			assertNotNull(thingToDo.getDate());
 			
-			try{
-				DateTime eventDate = Event.DATE_TIME_FORMAT.parseDateTime(thingToDo.getDate());
-				assertTrue(eventDate.isAfter(today));
-			}catch(IllegalArgumentException arg){
-				//The data in data.nashville.gov is..unfortunately...not
-				//perfectly clean and we have to ignore the garbage...
-			}
+			
+		}
+	}
+	public void testEventToString() throws Exception {
+		String name = "Test Event";
+		String location = "Test Location";
+		String attendance = "150";
+		String month = "January";
+		String date = "20th";
+		Event testEvent = new Event(name, location, attendance, month, date);
+		
+		assertEquals(testEvent.toString(), "Name: " + name + ", Location: " + location + ", Attendance: "
+				+ attendance + ", Month: " + month + ", Date: " + date);
 	}
 
 }
