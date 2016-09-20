@@ -45,5 +45,17 @@ public class AppTest {
 			assertNotNull(event.getDate());
 		}
 	}
+	
+	@Test
+	public void testGetPrivateEvents() throws Exception {
+		List<Event> events = app.getPrivateEvents();
+		assertTrue(events.size() > 0);
+		for(Event event : events){
+			assertEquals(event.getEventType(), "Private");
+			assertNotNull(event.getLocation());
+			assertNotNull(event.getName());
+			assertNotNull(event.getDate());
+		}
+	}
 
 }
