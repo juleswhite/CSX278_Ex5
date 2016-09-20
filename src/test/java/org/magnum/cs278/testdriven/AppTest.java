@@ -1,8 +1,6 @@
 package org.magnum.cs278.testdriven;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.List;
 
@@ -52,10 +50,19 @@ public class AppTest {
 		Event e1 = events.get(0);
 		String location = e1.getLocation();
 		List<Event> matches = app.filterByLocation(location);
+		
+		boolean eventWithLocationE1InMatches = false;
 
 		for(Event event: matches){
 			assertNotNull(event);
 			assertNotNull(event.getLocation());
+			if(event.getLocation() == location){
+				eventWithLocationE1InMatches = true;
+			}
 		}
+		
+		assertFalse(eventWithLocationE1InMatches);
+		
+	
 	}
 }
