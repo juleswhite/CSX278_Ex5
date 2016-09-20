@@ -85,7 +85,8 @@ public class App {
 				);
 	}
 
-	public List<Event> getPrivateEvents(List<Event> eventList){
+	public List<Event> getPrivateEvents() throws Exception{
+		List<Event> eventList = getParkSpecialPermits();
 		List<Event> privateEventList = new ArrayList<Event>();
 		for(Event event: eventList){
 			if(event.getEventType().equals("Private")){
