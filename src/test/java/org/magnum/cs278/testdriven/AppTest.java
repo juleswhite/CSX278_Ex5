@@ -53,7 +53,7 @@ public class AppTest {
         int maxAttendance = 1000;
         
         for(Event event : events){
-            assertTrue(Integer.parseInt(event.getAttendance()) > maxAttendance);
+            assertTrue(Integer.parseInt(event.getAttendance()) < maxAttendance);
         }
     }
 
