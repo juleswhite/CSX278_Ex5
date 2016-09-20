@@ -98,7 +98,7 @@ test for you. You can then add as many testXYZ methods annotated with @Test as y
 
 Please complete the following steps:
 
-1. Each team member should clone the class repo (make sure to pull the lastest version!)
+1. Each team member should clone the repo with this exercise (make sure to pull the lastest version!)
    and import this project into Eclipse as a Gradle project. Do not 
    import the entire repository into Eclipse.
 2. The team should dream up N new features, where N = Floor(total members / 2),
