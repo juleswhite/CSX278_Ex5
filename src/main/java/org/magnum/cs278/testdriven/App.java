@@ -68,6 +68,19 @@ public class App {
 
 		return toDo;
 	}
+	
+	public List<Event> getEventsInMonth(String month) throws Exception{
+		List<Event> inMonth = new ArrayList<>();
+		List<Event> evts = getParkSpecialPermits();
+		
+		for (Event existingEvent: evts) {
+			if (existingEvent.getDate().trim().equalsIgnoreCase(month)) {
+				inMonth.add(existingEvent);
+			}
+		}
+		
+		return inMonth;
+	}
 
 	// Download a list of all special event park permits for Nashville.
 	public List<Event> getParkSpecialPermits() throws Exception {
