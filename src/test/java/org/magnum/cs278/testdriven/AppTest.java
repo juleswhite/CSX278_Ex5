@@ -46,7 +46,7 @@ public class AppTest {
 		}
 	}
 	
-	// Test to check if date is past or not
+	// Test to check if year is odd or not
 	// Test written by: Mohaimin Al Aoun
 	@Test
 	public void testIsOdd() throws Exception{
