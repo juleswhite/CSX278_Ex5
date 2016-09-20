@@ -49,12 +49,10 @@ public class AppTest {
 	// Test to check if date is past or not
 	// Test written by: Mohaimin Al Aoun
 	@Test
-	public void testIsTwentiethCentury() throws Exception{
-		List<Event> events = app.isTwentiethCentury();
-		assertTrue(events.size()>0);
-		for(Event event: events){
-			assertTrue(Integer.parseInt(event.getDate().substring(6))>2001);
-		}
+	public void testIsOdd() throws Exception{
+		Event event = new Event(null, null, null, null, "02/02/99");
+		assertTrue(event.isOdd());
+		
 	}
 
 }
