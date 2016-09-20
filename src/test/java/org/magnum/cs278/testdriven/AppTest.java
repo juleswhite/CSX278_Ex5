@@ -46,4 +46,16 @@ public class AppTest {
 		}
 	}
 
+	@Test
+	public void testFilterByLocation() throws Exception{
+		List<Event> events = app.getParkSpecialPermits();
+		Event e1 = events.get(0);
+		String location = e1.getLocation();
+		List<Event> matches = app.filterByLocation(location);
+
+		for(Event event: matches){
+			assertNotNull(event);
+			assertNotNull(event.getLocation());
+		}
+	}
 }
