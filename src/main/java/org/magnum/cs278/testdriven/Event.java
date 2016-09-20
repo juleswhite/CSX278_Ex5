@@ -68,4 +68,8 @@ public class Event {
 			return DateTime.now();
 		}
 	}
+	
+	public String toString(){
+		return "Name: "+name+", Location: "+location+", Attendance: "+attendance+", Month: "+month+", Date: "+date+ ", Event Type: "+eventType;
+	}
 }

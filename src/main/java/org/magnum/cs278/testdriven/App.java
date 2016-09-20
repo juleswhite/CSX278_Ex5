@@ -3,7 +3,6 @@ package org.magnum.cs278.testdriven;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.joda.time.DateTime;
 
@@ -83,6 +82,13 @@ public class App {
 		return inMonth;
 	}
 
+	public Event getRandomEvent() throws Exception{
+		List<Event> evts = getParkSpecialPermits();
+		int index = (int) Math.ceil(Math.random()*evts.size());
+		Event randomEvt = evts.get(index);
+		return randomEvt;		
+	}
+
 	// Download a list of all special event park permits for Nashville.
 	public List<Event> getParkSpecialPermits() throws Exception {
 		
@@ -123,5 +129,18 @@ public class App {
 			}
 		}
 		return privateEventList;
+	}
+	
+	public int totalEvents() {
+		List<Event> events;
+		try {
+			events = getParkSpecialPermits();
+			return events.size();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return -1;
 	}
 }

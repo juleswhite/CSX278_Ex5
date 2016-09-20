@@ -95,4 +95,30 @@ public class AppTest {
 
     }
 
+	
+	@Test
+	public void testGetRandomEvent() throws Exception {
+		Event randomEvent = app.getRandomEvent();
+		DateTime today = DateTime.now();
+		assertNotNull(randomEvent);
+		assertNotNull(randomEvent.getDate());
+			
+			
+		
+	}
+	
+	@Test
+	public void testEventToString() throws Exception {
+		String name = "Test Event";
+		String location = "Test Location";
+		String attendance = "150";
+		String month = "January";
+		String date = "20th";
+		String eventType = "fun";
+		Event testEvent = new Event(name, location, attendance, month, date, eventType);
+		
+		assertEquals(testEvent.toString(), "Name: " + name + ", Location: " + location + ", Attendance: "
+				+ attendance + ", Month: " + month + ", Date: " + date+", Event Type: "+eventType);
+	}
+
 }
