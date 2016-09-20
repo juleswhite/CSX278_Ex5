@@ -45,5 +45,16 @@ public class AppTest {
 			assertNotNull(event.getDate());
 		}
 	}
+	
+    @Test
+    public void testSmallEvents() throws Exception {
+        List<Event> events = app.getSmallEvents();
+        
+        int maxAttendance = 1000;
+        
+        for(Event event : events){
+            assertTrue(Integer.parseInt(event.getAttendance()) > maxAttendance);
+        }
+    }
 
 }
