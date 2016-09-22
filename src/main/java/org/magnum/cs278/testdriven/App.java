@@ -84,4 +84,17 @@ public class App {
 				eventListType
 				);
 	}
+	
+	//filter events by name Group2 Neil Advani
+	public List<Event> getEventByName_Group2(String eventName) throws Exception {
+		List<Event> toReturn = new ArrayList<Event>();
+		List<Event> events = getParkSpecialPermits();
+		
+		for (Event evt : events) {
+			if (evt.getName().toLowerCase().equals(eventName.toLowerCase())) {
+				toReturn.add(evt);
+			}
+		}
+		return toReturn;
+	}
 }
