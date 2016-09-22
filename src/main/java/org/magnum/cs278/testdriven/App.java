@@ -95,7 +95,6 @@ public class App {
 			}
 			
 		}
-		return listByMonth;
 }
 
 	//filter events by name Group2 Neil Advani
@@ -109,6 +108,5 @@ public class App {
 			}
 		}
 		return toReturn;
->>>>>>> filterByNameFeat/Neil_Advani/group2
 	}
 }
