@@ -11,13 +11,19 @@ public class AttendanceFeat_test_group2 {
 	
 	@Test
 	public void test() {
-		String attendance = "20";
-		List<Event> events = app.getEventsAttendedOverLimit_group2(attendance);
-		
-		for(Event event : events) {
-			int eventAttend = Integer.parseInt(event.getAttendance());
-			assertTrue(eventAttend > Integer.parseInt(attendance));
+		int attendance = 20;
+		List<Event> events;
+		try {
+			events = app.getEventsAttendedOverLimit_group2(attendance);
+			for(Event event : events) {
+				int eventAttend = Integer.parseInt(event.getAttendance());
+				assertTrue(eventAttend > attendance);
+			}
+		} catch (Exception e) {
+			
+			e.printStackTrace();
 		}
+		
 	}
 
 }
