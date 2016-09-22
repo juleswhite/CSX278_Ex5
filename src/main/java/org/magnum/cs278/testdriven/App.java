@@ -90,7 +90,6 @@ public class App {
 				);
 	}
 	
-<<<<<<< HEAD
 	public List<Event> getEventsByMonth_group2(String month) throws Exception {
 		List<Event> listByMonth = new ArrayList<Event>();
 		List<Event> evts = getParkSpecialPermits();
@@ -127,6 +126,5 @@ public class App {
 			}
 		}
 		return attended;
->>>>>>> impl/betsy_weber/max_degroot/group2
 	}
 }
