@@ -40,6 +40,11 @@ public class App {
 		for (Event e : evts) {
 			System.out.println(e);
 		}
+		List<Event> evts2 = app.getEventsAttendedOverLimit_group2(20);
+				for (Event e : evts) {
+					System.out.println(e);
+				}	
+		
 	}
 
 	// Download the list of special event park permits and select
@@ -85,6 +90,7 @@ public class App {
 				);
 	}
 	
+<<<<<<< HEAD
 	public List<Event> getEventsByMonth_group2(String month) throws Exception {
 		List<Event> listByMonth = new ArrayList<Event>();
 		List<Event> evts = getParkSpecialPermits();
@@ -108,5 +114,19 @@ public class App {
 			}
 		}
 		return toReturn;
+	}
+	
+	public List<Event> getEventsAttendedOverLimit_group2(int limit) throws Exception {
+		List<Event> attended = new ArrayList<Event>();
+		List<Event> evts = getParkSpecialPermits();
+
+		DateTime now = DateTime.now();
+		for (Event evt : evts) {
+			if (Integer.parseInt(evt.getAttendance()) > limit) {
+				attended.add(evt);
+			}
+		}
+		return attended;
+>>>>>>> impl/betsy_weber/max_degroot/group2
 	}
 }
