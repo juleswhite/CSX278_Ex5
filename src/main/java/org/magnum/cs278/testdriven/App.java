@@ -85,6 +85,7 @@ public class App {
 				);
 	}
 	
+<<<<<<< HEAD
 	public List<Event> getEventsByMonth_group2(String month) throws Exception {
 		List<Event> listByMonth = new ArrayList<Event>();
 		List<Event> evts = getParkSpecialPermits();
@@ -95,5 +96,19 @@ public class App {
 			
 		}
 		return listByMonth;
+}
+
+	//filter events by name Group2 Neil Advani
+	public List<Event> getEventByName_Group2(String eventName) throws Exception {
+		List<Event> toReturn = new ArrayList<Event>();
+		List<Event> events = getParkSpecialPermits();
+		
+		for (Event evt : events) {
+			if (evt.getName().toLowerCase().equals(eventName.toLowerCase())) {
+				toReturn.add(evt);
+			}
+		}
+		return toReturn;
+>>>>>>> filterByNameFeat/Neil_Advani/group2
 	}
 }

@@ -45,5 +45,20 @@ public class AppTest {
 			assertNotNull(event.getDate());
 		}
 	}
+	
+	//group2 Neil Advani
+	@Test
+	public void testGetEventByName_Group2() throws Exception {
+		List<Event> noEvents = app.getEventByName_Group2("doesn't exist");
+		assertEquals(0, noEvents.size());
+
+		List<Event> farmersMarketEvents = app.getEventByName_Group2("Farmers Market at the Crossings");
+		assertEquals(25, farmersMarketEvents.size());
+		for(Event event : farmersMarketEvents) {
+			assertNotNull(event);
+			assertNotNull(event.getName());
+			assertEquals("Farmers Market at the Crossings", event.getName());
+		}
+	}
 
 }
