@@ -3,7 +3,6 @@ package org.magnum.cs278.testdriven;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.joda.time.DateTime;
 
@@ -36,8 +35,9 @@ public class App {
 	public static void main(String[] args) throws Exception {
 
 		App app = new App();
-		List<Event> evts = app.getThreeThingsToDo();
-		for (Event e : evts) {
+		//List<Event> evts = app.getThreeThingsToDo();
+		List<Event> hi = app.getSmallEvents();
+		for (Event e : hi) {
 			System.out.println(e);
 		}
 		List<Event> evts2 = app.getEventsAttendedOverLimit_group2(20);
@@ -72,6 +72,26 @@ public class App {
 		//			.collect(Collectors.toList());
 
 		return toDo;
+	}
+	
+	public List<Event> getEventsInMonth(String month) throws Exception{
+		List<Event> inMonth = new ArrayList<>();
+		List<Event> evts = getParkSpecialPermits();
+		
+		for (Event existingEvent: evts) {
+			if (existingEvent.getDate().trim().equalsIgnoreCase(month)) {
+				inMonth.add(existingEvent);
+			}
+		}
+		
+		return inMonth;
+	}
+
+	public Event getRandomEvent() throws Exception{
+		List<Event> evts = getParkSpecialPermits();
+		int index = (int) Math.ceil(Math.random()*evts.size());
+		Event randomEvt = evts.get(index);
+		return randomEvt;		
 	}
 
 	// Download a list of all special event park permits for Nashville.
@@ -126,5 +146,44 @@ public class App {
 			}
 		}
 		return attended;
+	}
+	
+	public List<Event> getSmallEvents() throws Exception {
+		List<Event> toDo = new ArrayList<Event>();
+		List<Event> evts = getParkSpecialPermits();
+		
+		int maxAttendance = 1000;
+		for (Event evt : evts) {
+			if  (evt.getAttendance() == null){
+				continue;
+			} else if (Integer.parseInt(evt.getAttendance()) < maxAttendance) {
+				toDo.add(evt);
+			}		
+		}
+		return toDo;
+	}
+	
+	public List<Event> getPrivateEvents() throws Exception{
+		List<Event> eventList = getParkSpecialPermits();
+		List<Event> privateEventList = new ArrayList<Event>();
+		for(Event event: eventList){
+			if(event.getEventType().equals("Private")){
+				privateEventList.add(event);
+			}
+		}
+		return privateEventList;
+	}
+	
+	public int totalEvents() {
+		List<Event> events;
+		try {
+			events = getParkSpecialPermits();
+			return events.size();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return -1;
 	}
 }

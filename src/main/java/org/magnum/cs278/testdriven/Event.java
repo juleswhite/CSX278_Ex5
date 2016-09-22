@@ -18,18 +18,22 @@ public class Event {
 	private final String attendance;
 	private final String month;
 	private final String date;
+	
+	private final String eventType;
 
 	public Event(@JsonProperty("event") String name,
 			@JsonProperty("location") String location,
 			@JsonProperty("attendance") String attendance,
 			@JsonProperty("month") String month,
-			@JsonProperty("date") String date) {
+			@JsonProperty("date") String date,
+			@JsonProperty("event_type") String eventType){
 		super();
 		this.name = name;
 		this.location = location;
 		this.attendance = attendance;
 		this.month = month;
 		this.date = date;
+		this.eventType = eventType; 
 	}
 
 	public String getName() {
@@ -51,6 +55,10 @@ public class Event {
 	public String getDate() {
 		return date;
 	}
+	
+	public String getEventType(){
+		return eventType;
+	}
 
 	@JsonIgnore
 	public DateTime getDateTime() {
@@ -59,5 +67,9 @@ public class Event {
 		}catch(IllegalArgumentException e){
 			return DateTime.now();
 		}
+	}
+	
+	public String toString(){
+		return "Name: "+name+", Location: "+location+", Attendance: "+attendance+", Month: "+month+", Date: "+date+ ", Event Type: "+eventType;
 	}
 }
