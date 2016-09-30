@@ -42,8 +42,16 @@ public class AppTest {
 			assertNotNull(event);
 			assertNotNull(event.getLocation());
 			assertNotNull(event.getName());
+			assertNotNull(event.getAttendance());
 			assertNotNull(event.getDate());
 		}
+	}
+	
+	
+	@Test 
+	public void testHasLargeAttendanceGroupFour() throws Exception {
+		final Event event = new Event("name", "location", "501", "month", "9/20/16" );
+		assertTrue(event.hasLargeAttendanceGroupFour());
 	}
 
 }
