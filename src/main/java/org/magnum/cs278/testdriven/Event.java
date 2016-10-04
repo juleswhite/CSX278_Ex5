@@ -60,4 +60,8 @@ public class Event {
 			return DateTime.now();
 		}
 	}
+	
+	public boolean hasLargeAttendanceGroupFour() {
+		return Integer.parseInt(attendance) > 500;
+	}
 }
